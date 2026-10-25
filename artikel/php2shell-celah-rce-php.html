@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHP2Shell: Dua Celah RCE PHP yang Wajib Segera Ditambal - Dadan Hidayat</title>
+<style>
+  body { background: #c0c0c0; color: #000; font-family: "Times New Roman", Times, serif; font-size: 18px; margin: 0; padding: 0 10px; }
+  a { color: #0000ee; }
+  a:visited { color: #551a8b; }
+  .kolom { max-width: 700px; margin: 0 auto; padding: 10px 4px 24px 4px; }
+  hr { border: 1px inset #808080; }
+  .kecil { font-size: 15px; }
+  table { border-collapse: collapse; margin: 10px 0; }
+  th, td { border: 1px solid #808080; padding: 4px 8px; text-align: left; }
+  @media (max-width: 600px) { body { font-size: 17px; } a { overflow-wrap: anywhere; } }
+</style>
+</head>
+<body>
+<div class="kolom">
+  <p><a href="../index.html">&larr; Kembali ke beranda</a></p>
+  <hr>
+  <h1>PHP2Shell: Dua Celah RCE PHP yang Wajib Segera Ditambal</h1>
+  <p class="kecil">25 Oktober 2026 &#8226; oleh Dadan Hidayat</p>
+  <hr>
+  <p>Pada 21 Oktober 2026, tim keamanan PHP merilis tambalan darurat untuk dua celah kritis yang dijuluki PHP2Shell: CVE-2026-109618 dan CVE-2026-109619. Masing-masing bernilai CVSS 9.2 dari 10 — kategori kritis.</p>
+  <h2>Apa yang rusak</h2>
+  <p>Keduanya adalah celah eksekusi kode jarak jauh (RCE) tanpa login. Penyerang cukup mengirim permintaan yang dibuat khusus ke situs publik, dan kode berjalan dengan hak akun pekerja web — sebelum satu baris pun kode aplikasi sempat dieksekusi. Tidak perlu akun, tidak perlu interaksi korban.</p>
+  <p>CVE-2026-109618 merusak memori lewat kondisi kehabisan memori saat PHP mengurai permintaan POST berukuran besar. CVE-2026-109619 memanfaatkan state global yang menunjuk ke memori yang sudah dibebaskan setelah sebuah permintaan berakhir abnormal — permintaan berikutnya pada pekerja yang sama bisa memakai ulang memori itu.</p>
+  <h2>Kenapa ini beda dari bug biasa</h2>
+  <p>Celahnya ada di mesin PHP itu sendiri, bukan di WordPress, plugin, atau kode aplikasi Anda. Meng-update CMS tidak memperbaikinya. Semua konfigurasi yang melayani web ikut terdampak — PHP-FPM, Apache mod_php, php-cgi, FrankenPHP, dan LiteSpeed — dengan mod_php sebagai yang paling berisiko. Akar masalahnya sudah ada sejak PHP 5.4, lebih dari satu dekade.</p>
+  <p>Yang lebih mengkhawatirkan: upaya eksploitasi sudah tercatat sebelum tambalan tersedia. Artinya menambal saja tidak cukup; log juga perlu diperiksa ke belakang.</p>
+  <h2>Versi yang aman</h2>
+  <table>
+    <tr><th>Cabang</th><th>Perbarui ke</th></tr>
+    <tr><td>PHP 8.5</td><td>8.5.12</td></tr>
+    <tr><td>PHP 8.4</td><td>8.4.27</td></tr>
+    <tr><td>PHP 8.3</td><td>8.3.36</td></tr>
+    <tr><td>PHP 8.2</td><td>8.2.35</td></tr>
+  </table>
+  <p>PHP 8.1 dan yang lebih lama tidak mendapat rilis perbaikan resmi. Pilihan yang benar: naik ke cabang yang didukung, atau minta tambalan backport dari vendor/distribusi Anda. Kalau tidak bisa ditambal sama sekali, lepaskan dari internet atau sembunyikan di balik WAF sampai bisa diperbarui.</p>
+  <h2>Yang harus dilakukan</h2>
+  <ol>
+    <li>Cek versi PHP Anda: <code>php -v</code> dan versi yang benar-benar melayani web (bisa berbeda dengan CLI).</li>
+    <li>Perbarui ke versi aman, lalu <b>restart</b> PHP-FPM dan server web — tanpa restart, biner lama yang masih berjalan tetap rentan.</li>
+    <li>Dahulukan sistem yang menghadap internet.</li>
+    <li>Periksa log dan sapu webshell: cari berkas PHP yang tidak Anda kenali, terutama yang muncul sejak sebelum tanggal tambalan.</li>
+    <li>Inventarisasi semua PHP, termasuk yang dibundel produk pihak ketiga — yang tidak Anda sadari keberadaannya tidak akan Anda tambal.</li>
+  </ol>
+  <h2>Mitigasi sementara yang tidak cukup</h2>
+  <p>Ada dua mitigasi parsial yang sering disalahpahami sebagai solusi. Membatasi ukuran body permintaan di WAF hanya membantu melawan CVE-2026-109618. Mematikan <code>session.upload_progress.enabled</code> hanya membantu melawan CVE-2026-109619. Tidak ada konfigurasi yang menutup keduanya. Menurut tim PHP sendiri, update adalah satu-satunya perbaikan yang dapat diandalkan.</p>
+  <h2>Pelajaran</h2>
+  <p>PHP2Shell mengajarkan satu hal yang membosankan tapi benar: patching bukan pekerjaan yang bisa ditunda sampai sempat. Celah di runtime tidak peduli seberapa bersih kode aplikasi Anda. Jadwalkan update keamanan, kenali semua tempat PHP Anda berjalan, dan perlakukan pengumuman keamanan darurat sebagai alarm — bukan sebagai berita yang bisa dibaca besok.</p>
+  <hr>
+  <p class="kecil">Sumber: <a href="https://www.bleepingcomputer.com/news/security/php-ships-emergency-patches-for-critical-php2shell-flaws/">BleepingComputer — PHP ships emergency patches for critical PHP2Shell flaws</a></p>
+  <p class="kecil">&#169; 2026 Dadan Hidayat &#8226; <a href="../index.html">Beranda</a></p>
+</div>
+</body>
+</html>
