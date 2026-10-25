@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dadan Hidayat - Homepage Pribadi</title>
+<style>
+  body {
+    background-color: #008080;
+    background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 8px);
+    font-family: "Times New Roman", Times, serif;
+    color: #000;
+    margin: 0;
+    padding: 12px;
+  }
+  a { color: #0000ee; }
+  a:visited { color: #551a8b; }
+  .kotak {
+    background: #ffffff;
+    border: 3px outset #c0c0c0;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 8px 18px 18px 18px;
+  }
+  .marquee-bar {
+    background: #000080;
+    color: #ffff00;
+    font-weight: bold;
+    padding: 4px;
+    margin: 0 -18px 12px -18px;
+  }
+  h1 { color: #000080; margin-bottom: 0; }
+  h2 {
+    color: #ffffff;
+    background: #000080;
+    padding: 3px 8px;
+    font-size: 20px;
+  }
+  .subjudul { margin-top: 2px; font-style: italic; }
+  .navi { text-align: center; font-weight: bold; margin: 12px 0; }
+  .navi a { margin: 0 6px; }
+  hr.pelangi {
+    border: 0;
+    height: 6px;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, purple);
+  }
+  .foto {
+    width: 120px;
+    height: 140px;
+    border: 3px inset #c0c0c0;
+    background: #d4d0c8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-weight: bold;
+    color: #000080;
+  }
+  table.proyek { border-collapse: collapse; width: 100%; }
+  table.proyek td, table.proyek th {
+    border: 1px solid #808080;
+    padding: 6px;
+    vertical-align: top;
+  }
+  table.proyek th { background: #c0c0c0; text-align: left; }
+  .baru {
+    color: #ff0000;
+    font-weight: bold;
+    animation: kedip 1s step-start infinite;
+  }
+  @keyframes kedip { 50% { opacity: 0; } }
+  .counter {
+    display: inline-block;
+    background: #000;
+    color: #00ff00;
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    letter-spacing: 3px;
+    padding: 2px 8px;
+    border: 2px inset #808080;
+  }
+  .badge {
+    display: inline-block;
+    border: 2px outset #c0c0c0;
+    background: #ffffcc;
+    padding: 2px 8px;
+    font-size: 13px;
+    margin: 2px;
+  }
+  .kecil { font-size: 13px; color: #333; }
+  .konstruksi {
+    border: 3px dashed #ff0000;
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+    margin: 12px 0;
+  }
+  input, textarea { font-family: "Times New Roman", Times, serif; width: 95%; }
+  .tengah { text-align: center; }
+</style>
+</head>
+<body>
+<div class="kotak">
+
+  <div class="marquee-bar"><marquee scrolldelay="80">&#9733; Selamat datang di homepage pribadi saya! &#9733; Jangan lupa isi buku tamu di bawah ya! &#9733;</marquee></div>
+
+  <div class="tengah">
+    <h1>Dadan Hidayat</h1>
+    <p class="subjudul">Mahasiswa Teknik Informatika &#8226; Sumedang, Jawa Barat</p>
+    <p>
+      <span class="badge">&#128187; Best viewed 800x600</span>
+      <span class="badge">&#127760; Dibuat dengan HTML murni</span>
+      <span class="badge">&#128336; <span id="jam">--:--:--</span> WIB</span>
+    </p>
+  </div>
+
+  <div class="navi">
+    [ <a href="#tentang">Tentang Saya</a> ]
+    [ <a href="#proyek">Proyek</a> ]
+    [ <a href="#keahlian">Keahlian</a> ]
+    [ <a href="#bukutamu">Buku Tamu</a> ]
+    [ <a href="#kontak">Kontak</a> ]
+  </div>
+  <hr class="pelangi">
+
+  <table cellpadding="8"><tr>
+    <td valign="top"><div class="foto">DH</div></td>
+    <td valign="top">
+      <h2 id="tentang" style="margin-top:0;">&#187; Tentang Saya</h2>
+      <p>Halo! Nama saya <b>Dadan Hidayat</b>. Saya mahasiswa S1 Teknik Informatika di STMIK Mardira Indonesia, dan saya suka membangun aplikasi yang benar-benar dipakai orang: aplikasi Qur'an, undangan digital, sistem ujian sekolah (CBT), sampai game edukasi anak.</p>
+      <p>Bagi saya, aplikasi yang bagus itu yang <b>teruji, cepat, dan tidak ada bug</b> — bukan cuma yang kelihatan canggih.</p>
+    </td>
+  </tr></table>
+
+  <h2 id="proyek">&#187; Proyek Saya</h2>
+  <table class="proyek">
+    <tr><th>Proyek</th><th>Keterangan</th><th>Tautan</th></tr>
+    <tr>
+      <td><b>NurQalam</b> <span class="baru">BARU!</span></td>
+      <td>Aplikasi Qur'an: baca, murottal offline, Iqro, dan panduan ibadah. Tersedia untuk web &amp; Android.</td>
+      <td><a href="https://nurqalam.my.id">nurqalam.my.id</a></td>
+    </tr>
+    <tr>
+      <td><b>Invitnesia</b></td>
+      <td>Platform undangan digital: tema, RSVP, manajemen tamu, dan check-in acara.</td>
+      <td><a href="https://invitnesia.com">invitnesia.com</a></td>
+    </tr>
+    <tr>
+      <td><b>Baca Ceria</b></td>
+      <td>Game edukasi anak: belajar huruf, suku kata, dan kata bergambar. Anak saya sendiri suka memainkannya.</td>
+      <td><a href="https://github.com/lnx645/baca-ceria">GitHub</a></td>
+    </tr>
+    <tr>
+      <td><b>Kendang Bajidor</b></td>
+      <td>Instrumen kendang Sunda digital untuk Android, dengan latensi rendah.</td>
+      <td><a href="https://github.com/lnx645/kendang-tanjidor">GitHub</a></td>
+    </tr>
+    <tr>
+      <td><b>CBT SMK Informatika</b></td>
+      <td>Sistem ujian berbasis komputer untuk SMK, dengan integritas ujian yang ketat.</td>
+      <td><a href="https://github.com/lnx645/cbt-ifsu-new">GitHub</a></td>
+    </tr>
+    <tr>
+      <td><b>PoggyGames</b></td>
+      <td>Portal game web: 13 game, termasuk PoggyClimb (mendaki gunung ala Roblox).</td>
+      <td><a href="https://poggygames.vercel.app">poggygames.vercel.app</a></td>
+    </tr>
+  </table>
+
+  <h2 id="keahlian">&#187; Keahlian</h2>
+  <ul>
+    <li><b>Backend:</b> Laravel / PHP, Go, PostgreSQL, SQLite</li>
+    <li><b>Frontend:</b> JavaScript, Svelte, HTML, CSS</li>
+    <li><b>Mobile &amp; Game:</b> Android (Capacitor), Godot</li>
+    <li><b>Lainnya:</b> Linux / VPS, Git, pengujian perangkat lunak</li>
+  </ul>
+
+  <div class="konstruksi">&#9888; Situs ini selalu dalam pembangunan &#8212; proyek baru akan ditambahkan seiring waktu! &#9888;</div>
+
+  <h2 id="bukutamu">&#187; Buku Tamu</h2>
+  <p>Silakan tinggalkan pesan! Pesan akan terkirim lewat email saya.</p>
+  <form action="mailto:dadanhidyt@gmail.com" method="post" enctype="text/plain">
+    <p>Nama:<br><input type="text" name="nama" required></p>
+    <p>Pesan:<br><textarea name="pesan" rows="4" required></textarea></p>
+    <p><input type="submit" value="Kirim Pesan" style="width:auto;"> <input type="reset" value="Hapus" style="width:auto;"></p>
+  </form>
+
+  <h2 id="kontak">&#187; Kontak</h2>
+  <p>
+    &#9993; Email: <a href="mailto:dadanhidyt@gmail.com">dadanhidyt@gmail.com</a><br>
+    &#128187; GitHub: <a href="https://github.com/lnx645">github.com/lnx645</a>
+  </p>
+
+  <hr class="pelangi">
+  <div class="tengah kecil">
+    <p>Anda sudah berkunjung <span class="counter" id="counter">000001</span> kali (dari browser ini)</p>
+    <p>&#169; 2026 Dadan Hidayat &#8226; Terakhir diperbarui: 25 Oktober 2026<br>
+    Halaman ini tidak memakai cookie pelacak. <a href="#">Ke atas &#8593;</a></p>
+  </div>
+
+</div>
+<script>
+  // Jam WIB
+  function tick() {
+    try {
+      document.getElementById('jam').textContent =
+        new Date().toLocaleTimeString('id-ID', { timeZone: 'Asia/Jakarta', hour12: false });
+    } catch (e) {}
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // Counter kunjungan per browser (localStorage) — bukan hitungan global.
+  try {
+    var n = parseInt(localStorage.getItem('dh-kunjungan') || '0', 10) + 1;
+    localStorage.setItem('dh-kunjungan', String(n));
+    document.getElementById('counter').textContent = String(n).padStart(6, '0');
+  } catch (e) {}
+</script>
+</body>
+</html>
